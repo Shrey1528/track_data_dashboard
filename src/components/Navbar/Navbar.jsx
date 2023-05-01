@@ -9,19 +9,19 @@ import {
   Settings,
   User,
 } from "./NavbarStyled";
-import { AiOutlineMessage } from "react-icons/ai";
-import { FiSearch, FiSettings } from "react-icons/fi";
+import { AiOutlineMessage, AiFillFileAdd } from "react-icons/ai";
+import { FiSettings } from "react-icons/fi";
 import avatar from "../../assets/Avatar.jpg";
 import { Tooltip } from "react-tooltip";
 
-const Navbar = () => {
+const Navbar = ({ setID }) => {
   return (
     <>
       <Container>
         <SearchContainer>
-          <Input placeholder="Search" />
+          <Input />
           <SearchIcon>
-            <FiSearch className="search-icon" />
+            <AiFillFileAdd color="#ffffff" />
           </SearchIcon>
         </SearchContainer>
 

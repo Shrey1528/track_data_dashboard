@@ -9,17 +9,16 @@ import Visualize from "./pages/Visualize/Visualize";
 function App() {
   return (
     <Container className="App">
-      <SubContainer className="sub-con">
-        <Sidebar />
-        <MainContainer>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/form" element={<Form />} />
-            <Route path="/Visualize" element={<Visualize />} />
-          </Routes>
-        </MainContainer>
-      </SubContainer>
+      <Sidebar />
+      <MainContainer>
+        <Navbar />
+        <MarginBar />
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/form" element={<Form />} />
+          <Route path="/Visualize" element={<Visualize />} />
+        </Routes>
+      </MainContainer>
     </Container>
   );
 }
@@ -33,21 +32,28 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   background-color: #f6fefd;
+  overflow-x: hidden;
 `;
 
 const SubContainer = styled.div`
-  width: 97%;
-  height: 92vh;
+  width: 100%;
+  height: 100vh;
   border-radius: 10px;
   display: flex;
-  box-shadow: 0px 0px 10px 5px gray;
 `;
 
 const MainContainer = styled.div`
   width: 80%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   background-color: #e7f3f6;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
+`;
+
+const MarginBar = styled.div`
+  width: "100%";
+  height: 2rem;
+  margin-top: 1rem;
 `;

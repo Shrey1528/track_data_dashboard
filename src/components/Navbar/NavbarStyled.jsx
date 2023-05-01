@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 100%;
+  width: 75%;
   border-top-right-radius: 10px;
   padding: 10px 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  top: 0;
 `;
 
 export const SearchContainer = styled.div`
@@ -33,6 +35,7 @@ export const SearchIcon = styled.div`
 `;
 
 export const Input = styled.input`
+  padding: 5px;
   width: 95%;
   border: none;
   &:focus {

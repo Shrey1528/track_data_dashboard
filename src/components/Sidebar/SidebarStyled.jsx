@@ -1,16 +1,11 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background-image: radial-gradient(
-    circle 580.6px at 10% 40%,
-    rgb(26, 0, 61) 30%,
-    rgb(0, 0, 0) 100%
-  );
+  background-color: rgb(26, 0, 61);
   border: 1px solid black;
   height: 100%;
   width: 20%;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+
   color: white;
 `;
 
