@@ -32,15 +32,15 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   background-color: #f6fefd;
-  overflow-x: hidden;
+  overflow: hidden;
 `;
 
-const SubContainer = styled.div`
-  width: 100%;
-  height: 100vh;
-  border-radius: 10px;
-  display: flex;
-`;
+// const SubContainer = styled.div`
+//   width: 100%;
+//   height: 100vh;
+//   border-radius: 10px;
+//   display: flex;
+// `;
 
 const MainContainer = styled.div`
   width: 80%;

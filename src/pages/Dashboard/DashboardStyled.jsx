@@ -1,65 +1,30 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  /* border: 1px solid black; */
   height: 150%;
   width: 100%;
   margin-top: 1rem;
   border-bottom-right-radius: 10px;
-  padding: 2%;
   overflow-y: scroll;
-  overflow-x: hidden;
-  align-items: center;
-  justify-items: center;
 
   .chart-canvas {
     width: 50%;
     height: 50%;
   }
-`;
 
-export const StatsContainer = styled.div`
-  width: 90%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 1rem;
-`;
-
-export const Stats = styled.div`
-  width: 25%;
-  height: 2rem;
-  padding: 8px 16px;
-  border-radius: 20px;
-  border: 3px solid rgb(26, 0, 61);
-  background-color: #ffffff;
-  box-shadow: 1px 2px 5px grey;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  p {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    min-width: 12%;
-    max-width: 50%;
-    padding: 2%;
-    height: 75%;
-    border-radius: 50%;
-    background-color: rgb(26, 0, 61);
+  ::-webkit-scrollbar {
+    width: 10px;
   }
-`;
 
-export const ChartContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: 1.25rem;
-  gap: 1rem;
-  grid-template-columns: repeat(2, 1fr);
-  border: 1px solid red;
-  width: auto;
-  padding: 5px;
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #180039;
+    border-radius: 10px;
+  }
 `;
 
 export const Content = styled.div`
@@ -69,13 +34,24 @@ export const Content = styled.div`
   }
 `;
 
-// export const Chart = styled.div`
-//   width: 90%;
-//   height: 60%;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   border-radius: 50px;
-//   background: #ebe6e6;
-//   box-shadow: 28px 28px 56px #bebebe, -28px -28px 56px #ffffff;
-// `;
+export const ChartConOne = styled.div`
+  width: 100%;
+  height: 50%;
+  /* border: 1px solid black; */
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 2rem 0;
+  /* padding: 3%; */
+`;
+
+export const Chart = styled.div`
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  background: #ebe6e6;
+  box-shadow: 28px 28px 56px #bebebe, -28px -28px 56px #ffffff;
+`;

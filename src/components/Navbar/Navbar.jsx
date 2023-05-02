@@ -1,15 +1,6 @@
 import React from "react";
-import {
-  Container,
-  Input,
-  Message,
-  Profile,
-  SearchContainer,
-  SearchIcon,
-  Settings,
-  User,
-} from "./NavbarStyled";
-import { AiOutlineMessage, AiFillFileAdd } from "react-icons/ai";
+import { Container, Message, Profile, Settings, User } from "./NavbarStyled";
+import { AiOutlineMessage } from "react-icons/ai";
 import { FiSettings } from "react-icons/fi";
 import avatar from "../../assets/Avatar.jpg";
 import { Tooltip } from "react-tooltip";
@@ -18,13 +9,6 @@ const Navbar = ({ setID }) => {
   return (
     <>
       <Container>
-        <SearchContainer>
-          <Input />
-          <SearchIcon>
-            <AiFillFileAdd color="#ffffff" />
-          </SearchIcon>
-        </SearchContainer>
-
         <User>
           <Settings>
             <FiSettings

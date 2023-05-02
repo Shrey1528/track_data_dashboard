@@ -42,16 +42,7 @@ const Sidebar = () => {
             onClick={() => toggleTab(1)}
           >
             <RiDashboardLine className="icon" />
-            Dashboard
-          </Tab>
-        </Link>
-        <Link to="/form" className="links">
-          <Tab
-            className={`${getActiveClass(2, "active-tabs")}`}
-            onClick={() => toggleTab(2)}
-          >
-            <AiOutlineForm className="icon" />
-            Form
+            Overview
           </Tab>
         </Link>
         <Link to="/visualize" className="links">
@@ -61,6 +52,15 @@ const Sidebar = () => {
           >
             <BsBarChart className="icon" />
             Data Visualize
+          </Tab>
+        </Link>
+        <Link to="/form" className="links">
+          <Tab
+            className={`${getActiveClass(2, "active-tabs")}`}
+            onClick={() => toggleTab(2)}
+          >
+            <AiOutlineForm className="icon" />
+            Form
           </Tab>
         </Link>
         <Tab onClick={closewindow}>

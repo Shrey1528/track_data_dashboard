@@ -5,8 +5,7 @@ export const Container = styled.div`
   border-top-right-radius: 10px;
   padding: 10px 5px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-end;
   position: fixed;
   top: 0;
 `;
@@ -73,7 +72,7 @@ export const Profile = styled.div`
   box-shadow: 0px 0px 5px 1px gray;
   background-color: white;
 
-  width: 6%;
+  width: 5%;
   cursor: pointer;
   img {
     width: 100%;

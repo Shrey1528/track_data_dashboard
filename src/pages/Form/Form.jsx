@@ -36,7 +36,7 @@ const Form = () => {
     const query = URLParamBuilder();
     try {
       const response = await axios.get(
-        `http://localhost:8000/api/process_file/100103/?${query}`
+        `http://localhost:8000/api/process_file/?${query}`
       );
       if (response) {
         setData(response.data.data);
@@ -95,10 +95,10 @@ const Form = () => {
             <tbody>
               {data?.map((ele) => {
                 return (
-                  <tr key={ele.props.cc_num}>
-                    <td>{ele.props.cc_num}</td>
-                    <td>{ele.props.first}</td>
-                    <td>{ele.props.last}</td>
+                  <tr key={ele.props?.cc_num}>
+                    <td>{ele.props?.cc_num}</td>
+                    <td>{ele.props?.first}</td>
+                    <td>{ele.props?.last}</td>
                   </tr>
                 );
               })}
