@@ -1,14 +1,8 @@
 import React, { useState } from "react";
-import {
-  Company,
-  Container,
-  Credits,
-  Tab,
-  TabsContainer,
-} from "./SidebarStyled";
+import { Company, Container, Tab, TabsContainer } from "./SidebarStyled";
 import { Link } from "react-router-dom";
 import { RiDashboardLine } from "react-icons/ri";
-import { AiFillHeart, AiOutlineForm, AiOutlinePoweroff } from "react-icons/ai";
+import { AiOutlineForm, AiOutlinePoweroff } from "react-icons/ai";
 import { BsBarChart } from "react-icons/bs";
 import { MdOutlineDataExploration } from "react-icons/md";
 
@@ -68,9 +62,6 @@ const Sidebar = () => {
           Logout
         </Tab>
       </TabsContainer>
-      <Credits>
-        Made with <AiFillHeart className="heart" /> by Shrey
-      </Credits>
     </Container>
   );
 };

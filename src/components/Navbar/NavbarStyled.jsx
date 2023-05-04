@@ -61,6 +61,9 @@ export const Message = styled.div`
   cursor: pointer;
   .icon {
     font-size: 1.5rem;
+    &:focus {
+      outline: none;
+    }
   }
 `;
 
@@ -90,5 +93,8 @@ export const Settings = styled.div`
   cursor: pointer;
   .icon {
     font-size: 1.3rem;
+    &:focus {
+      outline: none;
+    }
   }
 `;

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  /* border: 1px solid black; */
   height: 150%;
   width: 100%;
   margin-top: 1rem;
@@ -37,12 +36,10 @@ export const Content = styled.div`
 export const ChartConOne = styled.div`
   width: 100%;
   height: 50%;
-  /* border: 1px solid black; */
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   margin: 2rem 0;
-  /* padding: 3%; */
 `;
 
 export const Chart = styled.div`
@@ -52,6 +49,6 @@ export const Chart = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 50px;
-  background: #ebe6e6;
-  box-shadow: 28px 28px 56px #bebebe, -28px -28px 56px #ffffff;
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(190, 190, 190),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
 `;

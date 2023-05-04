@@ -2,16 +2,29 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   height: 100%;
-  padding: 3% 0;
-  margin-top: 2rem;
+  padding: 2% 0;
+  overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #180039;
+    border-radius: 10px;
+  }
 `;
 
-export const InputContainer = styled.div`
+export const InputMainContainer = styled.div`
   width: 100%;
   height: 20%;
   margin: 1rem auto;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   justify-items: center;
   align-items: center;
   grid-row-gap: 1.25rem;
@@ -50,10 +63,26 @@ export const TableContainer = styled.div`
   }
 `;
 
+export const InputButtonContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const InputButton = styled.button`
-  width: 25%;
-  background-color: rgb(26, 0, 61);
-  color: white;
+  width: 20%;
+  border: none;
+  background: linear-gradient(
+    320deg,
+    rgba(0, 140, 255, 0.678),
+    rgba(128, 0, 128, 0.308)
+  );
+  color: #180039;
   border-radius: 8px;
-  margin-left: 7%;
+  margin-top: 1rem;
+  padding: 10px 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
 `;

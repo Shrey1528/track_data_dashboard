@@ -67,17 +67,3 @@ export const Tab = styled.div`
     left: 0;
   }
 `;
-
-export const Credits = styled.div`
-  width: 65%;
-  bottom: 6%;
-  position: absolute;
-  left: 5%;
-  font-size: 0.8rem;
-  display: flex;
-  align-items: center;
-  gap: 0.2rem;
-  .heart {
-    color: red;
-  }
-`;

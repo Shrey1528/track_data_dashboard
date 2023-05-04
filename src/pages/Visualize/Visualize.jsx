@@ -1,7 +1,10 @@
 import React from "react";
 import {
+  Button,
   ChartContainer,
   Container,
+  InputContainer,
+  LoaderCon,
   Stats,
   StatsContainer,
 } from "./VisualizeStyled";
@@ -12,6 +15,10 @@ import { useState } from "react";
 import { storage } from "../../firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { v4 } from "uuid";
+import { MdFileUpload } from "react-icons/md";
+import { RotatingLines } from "react-loader-spinner";
+import { Flip, ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Dashboard = ({ requestId }) => {
   const [data, setData] = useState();
@@ -35,6 +42,17 @@ const Dashboard = ({ requestId }) => {
       setFileName(`${file.name + v4()}`);
       const fileRef = ref(storage, `csv/${fileName}`);
       const uploadedFile = await uploadBytes(fileRef, file);
+
+      toast.success("File Uploaded Successfully", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
 
       if (uploadedFile) {
         const response = await getDownloadURL(ref(storage, `csv/${fileName}`));
@@ -148,8 +166,22 @@ const Dashboard = ({ requestId }) => {
   //   checkData();
   // }, []);
 
+  // if (loading) {
+  //   return <h1>Loading....</h1>;
+  // }
+
   if (loading) {
-    return <h1>Loading....</h1>;
+    return (
+      <LoaderCon>
+        <RotatingLines
+          strokeColor="grey"
+          strokeWidth="5"
+          animationDuration="0.75"
+          width="96"
+          visible={true}
+        />
+      </LoaderCon>
+    );
   }
 
   return (
@@ -157,16 +189,16 @@ const Dashboard = ({ requestId }) => {
       {data ? (
         <>
           <StatsContainer>
-            <Stats>
-              <h6>Number Of Transactions</h6>
+            <Stats className="transaction">
+              <h4>Number Of Transactions</h4>
               <p>{data.length}</p>
             </Stats>
-            <Stats>
-              <h6>Number Of Categories</h6>
+            <Stats className="categories">
+              <h4>Number Of Categories</h4>
               <p>{numberOfCats}</p>
             </Stats>
-            <Stats>
-              <h6>Average Ticket Size</h6>
+            <Stats className="ticket">
+              <h4>Average Ticket Size</h4>
               <p>{avgTicket.toPrecision(2)}</p>
             </Stats>
           </StatsContainer>
@@ -211,15 +243,33 @@ const Dashboard = ({ requestId }) => {
         </>
       ) : (
         <>
-          <Container>
+          <InputContainer>
             <input
               type="file"
               onChange={(event) => {
                 setFile(event.target.files[0]);
               }}
             />
-            <button onClick={onFileUpload}>Upload File</button>
-          </Container>
+            <Button onClick={onFileUpload}>
+              <span className="text">Upload File</span>
+              <span className="icon">
+                <MdFileUpload style={{ fontSize: "20px" }} />
+              </span>
+            </Button>
+            <ToastContainer
+              position="top-center"
+              autoClose={3000}
+              transition={Flip}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="colored"
+            />
+          </InputContainer>
         </>
       )}
     </Container>
