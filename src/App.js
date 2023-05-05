@@ -16,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/form" element={<Form />} />
-          <Route path="/Visualize" element={<Visualize />} />
+          <Route path="/visualize" element={<Visualize />} />
         </Routes>
       </MainContainer>
     </Container>
