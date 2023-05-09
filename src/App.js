@@ -5,8 +5,11 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import { Routes, Route } from "react-router-dom";
 import Form from "./pages/Form/Form";
 import Visualize from "./pages/Visualize/Visualize";
+import { useState } from "react";
 
 function App() {
+  const [fileId, setFileId] = useState("");
+
   return (
     <Container className="App">
       <Sidebar />
@@ -15,8 +18,11 @@ function App() {
         <MarginBar />
         <Routes>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/form" element={<Form />} />
-          <Route path="/visualize" element={<Visualize />} />
+          <Route path="/form" element={<Form fileId={fileId} />} />
+          <Route
+            path="/visualize"
+            element={<Visualize setFileId={setFileId} />}
+          />
         </Routes>
       </MainContainer>
     </Container>

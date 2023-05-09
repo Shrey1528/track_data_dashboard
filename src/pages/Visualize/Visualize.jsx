@@ -20,7 +20,7 @@ import { RotatingLines } from "react-loader-spinner";
 import { Flip, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Dashboard = ({ requestId }) => {
+const Visualize = ({ requestId, setFileId }) => {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(false);
   const [numberOfCats, setNumberOfCats] = useState(0);
@@ -68,6 +68,7 @@ const Dashboard = ({ requestId }) => {
             checkData(innerRes.data.data.id);
           }
           setID(innerRes.data.data.id);
+          setFileId(innerRes.data.data.id);
           console.log(Id);
         }
       }
@@ -276,4 +277,4 @@ const Dashboard = ({ requestId }) => {
   );
 };
 
-export default Dashboard;
+export default Visualize;

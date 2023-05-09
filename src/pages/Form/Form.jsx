@@ -11,7 +11,7 @@ import axios from "axios";
 import { TextField } from "@mui/material";
 import { Flip, ToastContainer, toast } from "react-toastify";
 
-const Form = () => {
+const Form = ({ fileId }) => {
   const [ccNum, setCCNum] = useState("");
   const [first, setFirst] = useState("");
   const [last, setLast] = useState("");
@@ -64,7 +64,7 @@ const Form = () => {
     const query = URLParamBuilder();
     try {
       const response = await axios.get(
-        `http://localhost:8000/api/process_file/?${query}`
+        `http://localhost:8000/api/process_file/${fileId}/?${query}`
       );
       if (response) {
         setData(response.data.data);
