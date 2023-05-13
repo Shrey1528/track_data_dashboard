@@ -4,12 +4,10 @@ export const Container = styled.div`
   height: 150%;
   width: 100%;
   margin-top: 1rem;
-  border-bottom-right-radius: 10px;
   padding: 2%;
-  overflow-y: scroll;
-  overflow-x: hidden;
   align-items: center;
   justify-items: center;
+  overflow-y: scroll;
 
   .chart-canvas {
     width: 50%;
@@ -78,12 +76,21 @@ export const Stats = styled.div`
 export const ChartContainer = styled.div`
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
   margin-top: 1.25rem;
+  margin-left: 2rem;
   gap: 1rem;
-  /* grid-template-columns: repeat(2, 1fr); */
-  /* border: 1px solid red; */
   width: 90%;
-  padding: 5px;
+
+  .sub {
+    width: 100%;
+    padding: 1%;
+    h4 {
+      text-align: center;
+      font-weight: 500;
+      font-style: oblique;
+    }
+  }
 `;
 
 export const InputContainer = styled.div`

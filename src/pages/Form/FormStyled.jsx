@@ -44,9 +44,9 @@ export const Input = styled.input`
 
 export const TableContainer = styled.div`
   border: 3px solid rgb(26, 0, 61);
-  border-radius: 10px;
   width: 90%;
   margin: 2rem auto;
+  border-radius: 10px;
   table {
     width: 100%;
     border-radius: 10px;

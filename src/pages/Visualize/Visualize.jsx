@@ -27,7 +27,7 @@ const Visualize = ({ requestId, setFileId }) => {
   const [avgTicket, setAvgTicketValue] = useState(0);
   const [catChartData, setCatChartData] = useState([]);
   const [stateChartData, setStateChartData] = useState([]);
-  const [catVsAmt, setCatVsAmt] = useState([]);
+  // const [catVsAmt, setCatVsAmt] = useState([]);
 
   const [file, setFile] = useState();
   const [fileName, setFileName] = useState("");
@@ -154,7 +154,7 @@ const Visualize = ({ requestId, setFileId }) => {
         setCatChartData(newCatChartData);
         setStateChartData(newCityData);
         setNumberOfCats(newCatChartData.length);
-        setCatVsAmt(newCatAmtData);
+        // setCatVsAmt(newCatAmtData);
         setAvgTicketValue(ticketSum / data.length);
       }
     } catch (error) {
@@ -204,31 +204,31 @@ const Visualize = ({ requestId, setFileId }) => {
             </Stats>
           </StatsContainer>
           <ChartContainer>
-            <BarChart
-              width={window.innerWidth * 0.75}
-              height={250}
-              data={catChartData}
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Legend />
-              <Bar dataKey="value" fill="#8884d8" />
-            </BarChart>
-            <BarChart
-              width={window.innerWidth * 0.75}
-              height={250}
-              data={stateChartData}
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Legend />
-              <Bar dataKey="value" fill="#82ca9d" />
-            </BarChart>
-            <BarChart
+            <div className="sub">
+              <h4>Category V/S Frequency</h4>
+              <BarChart width={900} height={300} data={catChartData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="value" fill="#8884d8" />
+              </BarChart>
+            </div>
+
+            <div className="sub">
+              <h4>City V/S Frequency</h4>
+              <BarChart width={900} height={300} data={stateChartData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="value" fill="#82ca9d" />
+              </BarChart>
+            </div>
+
+            {/* <BarChart
               width={window.innerWidth * 0.75}
               height={250}
               data={catVsAmt}
@@ -239,7 +239,7 @@ const Visualize = ({ requestId, setFileId }) => {
               <Tooltip />
               <Legend />
               <Bar dataKey="value" fill="#82ca9d" />
-            </BarChart>
+            </BarChart> */}
           </ChartContainer>
         </>
       ) : (

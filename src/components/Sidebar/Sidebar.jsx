@@ -54,7 +54,7 @@ const Sidebar = () => {
             onClick={() => toggleTab(2)}
           >
             <AiOutlineForm className="icon" />
-            Form
+            Data Filter
           </Tab>
         </Link>
         <Tab onClick={closewindow}>

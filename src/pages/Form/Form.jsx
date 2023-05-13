@@ -186,34 +186,38 @@ const Form = ({ fileId }) => {
             theme="colored"
           />
         </InputButtonContainer>
-        <TableContainer>
-          <table>
-            <thead>
-              <tr>
-                <th>CC Number</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Gender</th>
-                <th>City</th>
-                <th>Job</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data?.map((ele) => {
-                return (
-                  <tr key={ele.props?.cc_num}>
-                    <td>{ele.props?.cc_num}</td>
-                    <td>{ele.props?.first}</td>
-                    <td>{ele.props?.last}</td>
-                    <td>{ele.props?.gender}</td>
-                    <td>{ele.props?.city}</td>
-                    <td>{ele.props?.job}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </TableContainer>
+        {data ? (
+          <TableContainer>
+            <table>
+              <thead>
+                <tr>
+                  <th>CC Number</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Gender</th>
+                  <th>City</th>
+                  <th>Job</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data?.map((ele) => {
+                  return (
+                    <tr key={ele.props?.cc_num}>
+                      <td>{ele.props?.cc_num}</td>
+                      <td>{ele.props?.first}</td>
+                      <td>{ele.props?.last}</td>
+                      <td>{ele.props?.gender}</td>
+                      <td>{ele.props?.city}</td>
+                      <td>{ele.props?.job}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </TableContainer>
+        ) : (
+          ""
+        )}
       </Container>
     </>
   );
