@@ -19,6 +19,7 @@ import { MdFileUpload } from "react-icons/md";
 import { RotatingLines } from "react-loader-spinner";
 import { Flip, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Chart } from "../Dashboard/DashboardStyled";
 
 const Visualize = ({ requestId, setFileId }) => {
   const [data, setData] = useState();
@@ -27,7 +28,6 @@ const Visualize = ({ requestId, setFileId }) => {
   const [avgTicket, setAvgTicketValue] = useState(0);
   const [catChartData, setCatChartData] = useState([]);
   const [stateChartData, setStateChartData] = useState([]);
-  // const [catVsAmt, setCatVsAmt] = useState([]);
 
   const [file, setFile] = useState();
   const [fileName, setFileName] = useState("");
@@ -56,6 +56,7 @@ const Visualize = ({ requestId, setFileId }) => {
 
       if (uploadedFile) {
         const response = await getDownloadURL(ref(storage, `csv/${fileName}`));
+        console.log(response);
         if (response) {
           const innerRes = await axios.post(
             `http://${LOCALHOST}/api/process_file/`,
@@ -125,7 +126,7 @@ const Visualize = ({ requestId, setFileId }) => {
             }
 
             if (element.props.amt) {
-              ticketSum += element.props.amt;
+              ticketSum = ticketSum + parseInt(element.props.amt);
             }
           }
         });
@@ -154,8 +155,8 @@ const Visualize = ({ requestId, setFileId }) => {
         setCatChartData(newCatChartData);
         setStateChartData(newCityData);
         setNumberOfCats(newCatChartData.length);
-        // setCatVsAmt(newCatAmtData);
-        setAvgTicketValue(ticketSum / data.length);
+        // console.log("Ticket Sum" + ticketSum);
+        setAvgTicketValue(ticketSum / response.data.data.length);
       }
     } catch (error) {
       console.log(error);
@@ -166,10 +167,6 @@ const Visualize = ({ requestId, setFileId }) => {
   // useEffect(() => {
   //   checkData();
   // }, []);
-
-  // if (loading) {
-  //   return <h1>Loading....</h1>;
-  // }
 
   if (loading) {
     return (
@@ -205,41 +202,41 @@ const Visualize = ({ requestId, setFileId }) => {
           </StatsContainer>
           <ChartContainer>
             <div className="sub">
-              <h4>Category V/S Frequency</h4>
-              <BarChart width={900} height={300} data={catChartData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Bar dataKey="value" fill="#8884d8" />
-              </BarChart>
+              <Chart>
+                <h4>Category V/S Frequency</h4>
+                <BarChart
+                  width={1000}
+                  height={300}
+                  data={catChartData}
+                  margin={{
+                    top: 5,
+                    right: 30,
+                    left: 20,
+                    bottom: 5,
+                  }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey={data.name} />
+                  <YAxis />
+                  <Tooltip />
+                  <Bar dataKey="value" fill="#8884d8" />
+                </BarChart>
+              </Chart>
             </div>
 
             <div className="sub">
-              <h4>City V/S Frequency</h4>
-              <BarChart width={900} height={300} data={stateChartData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Bar dataKey="value" fill="#82ca9d" />
-              </BarChart>
+              <Chart>
+                <h4>City V/S Frequency</h4>
+                <BarChart width={1000} height={300} data={stateChartData}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Bar dataKey="value" fill="#82ca9d" />
+                </BarChart>
+              </Chart>
             </div>
-
-            {/* <BarChart
-              width={window.innerWidth * 0.75}
-              height={250}
-              data={catVsAmt}
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Legend />
-              <Bar dataKey="value" fill="#82ca9d" />
-            </BarChart> */}
           </ChartContainer>
         </>
       ) : (

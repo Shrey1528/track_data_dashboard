@@ -10,6 +10,7 @@ import { useState } from "react";
 import axios from "axios";
 import { TextField } from "@mui/material";
 import { Flip, ToastContainer, toast } from "react-toastify";
+import { isEqual, uniqWith } from "lodash";
 
 const Form = ({ fileId }) => {
   const [ccNum, setCCNum] = useState("");
@@ -62,12 +63,13 @@ const Form = ({ fileId }) => {
       theme: "colored",
     });
     const query = URLParamBuilder();
+    setData([]);
     try {
       const response = await axios.get(
         `http://localhost:8000/api/process_file/${fileId}/?${query}`
       );
       if (response) {
-        setData(response.data.data);
+        setData(uniqWith(response.data.data, isEqual));
       }
     } catch (error) {
       console.log(error);
@@ -78,36 +80,6 @@ const Form = ({ fileId }) => {
     <>
       <Container>
         <InputMainContainer>
-          {/* <InputCon className="input-group">
-            <Input
-              className="input"
-              name="text"
-              type="text"
-              // placeholder="CC Number"
-              value={ccNum}
-              onChange={(event) => {
-                setCCNum(event.target.value);
-              }}
-            />
-            <label className="label">CC Number</label>
-          </InputCon> */}
-
-          {/* <Input
-            type="text"
-            placeholder="First Name"
-            value={first}
-            onChange={(event) => {
-              setFirst(event.target.value);
-            }}
-          />
-          <Input
-            type="text"
-            placeholder="Last Name"
-            value={last}
-            onChange={(event) => {
-              setLast(event.target.value);
-            }} />*/}
-
           <TextField
             id="demo-helper-text-aligned-no-helper"
             label="CC Number"

@@ -37,23 +37,16 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f6fefd;
+  background-color: white;
   overflow: hidden;
 `;
-
-// const SubContainer = styled.div`
-//   width: 100%;
-//   height: 100vh;
-//   border-radius: 10px;
-//   display: flex;
-// `;
 
 const MainContainer = styled.div`
   width: 80%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: #e7f3f6;
+  background-color: white;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 `;
